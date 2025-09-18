@@ -72,7 +72,6 @@ void lecturaReparaciones() {
   }
 
   while (!archivoReparaciones.eof()) {
-
     getline(archivoReparaciones,texto);
     cout << texto << endl;
   }
