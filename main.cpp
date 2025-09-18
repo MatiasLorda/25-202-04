@@ -57,7 +57,7 @@ void lecturaProductos() {
  archivoProductos.close();
 }
 
-//Lectura de archivo de reparaciones (19/09/25)
+//Lectura de archivo de reparaciones (18/09/25)
 
 void lecturaReparaciones() {
 
