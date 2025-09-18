@@ -25,13 +25,57 @@ struct Reparaciones {
 }
 
 
-void busqueda_lineal () {
+void busqueda_lineal() {
 
 }
 
 void ordenamiento_ascendente() {
 
 }
+
+
+void lecturaProductos() { 
+
+  ifstream archivoProductos;
+  string texto;
+
+  archivoProductos.open("productos.bin");
+
+  if (archivoProductos.fail()) {
+    cout << "No se pudo abrir el archivo de producos" << endl;
+    exit(1);
+  }
+  
+  while (!archivoProductos.eof()) {
+    getline(archivoProductos,texto);
+    cout << texto << endl;
+  }
+
+ archivoProductos.close();
+}
+
+
+void lecturaReparaciones() {
+
+  ifstream archivoReparaciones;
+  string texto;
+
+  archivoReparaciones.open("reparaciones.bin");
+
+  if archivoReparaciones.fail(){
+    cout << "No se pudo abrir el archivo de reparaciones" << endl;
+    exit(1);
+  }
+
+  while (!archivoReparaciones.eof()) {
+
+    getline(archivoReparaciones,texto);
+    cout << texto << endl;
+  }
+
+  archivoReparaciones.close();
+}
+
 
 
 int main() {
