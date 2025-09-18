@@ -84,7 +84,8 @@ void lecturaReparaciones() {
 
 int main() {
 
-  cout << "Hola Mundo" << endl;
+  lecturaProductos();
+  lecturaReparaciones();
 
   return 0;
 }
