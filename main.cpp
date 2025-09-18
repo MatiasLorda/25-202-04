@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Definicion de estructuras (18/09/25)
 
 struct Productos {
 
@@ -24,6 +25,7 @@ struct Reparaciones {
 
 }
 
+// Funciones de ordenamiento y busqueda lineal (18/09/25)
 
 void busqueda_lineal() {
 
@@ -33,6 +35,7 @@ void ordenamiento_ascendente() {
 
 }
 
+// Lectura de archivo de productos (18/09/25)
 
 void lecturaProductos() { 
 
@@ -54,6 +57,7 @@ void lecturaProductos() {
  archivoProductos.close();
 }
 
+//Lectura de archivo de reparaciones (19/09/25)
 
 void lecturaReparaciones() {
 
