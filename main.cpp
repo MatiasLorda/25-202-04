@@ -79,7 +79,15 @@ void lecturaReparaciones() {
   archivoReparaciones.close();
 }
 
-
+//Descripcion del tipo de producto
+string descripcionTipo(int tipo) {
+    switch (tipo) {
+        case 0: return "Electrónico";
+        case 1: return "Mecánico";
+        case 2: return "Mecatrónico";
+        default: return "Desconocido";
+    }
+}
 
 int main() {
 
