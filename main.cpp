@@ -41,8 +41,18 @@ void insertarReparaciones (Reparaciones *&lista) {
 
 // Funciones de ordenamiento y busqueda lineal (18/09/25)
 
-void busqueda_lineal() {
+template <typename T>
+int busqueda_lineal(T vec[], int dim, T clave, int (*criterio)(T, T)) {
+    for (int i = 0; i < dim; i++) {
+        int cmp = criterio(vec[i], clave);
 
+        if (cmp == 0) {
+            return i; // Encontrado
+        } else if (cmp > 0) {
+            return -1; // Como está ordenado, ya no puede estar más adelante
+        }
+    }
+    return -1; // No encontrado
 }
 
 template <typename T>
