@@ -48,39 +48,35 @@ void busqueda_lineal() {
 template <typename T>
 void ordenamiento_ascendente(T vec[], int dim, int (*criterio)(T, T)) {
     int i, j;
-    T temp;
+    T aux;
 
     for (i = 1; i < dim; i++) {
-        temp = vec[i];
+        aux = vec[i];
         j = i - 1;
 
-        while (j >= 0 && criterio(vec[j], temp) > 0) {
+        while (j >= 0 && criterio(vec[j], aux) > 0) {
             vec[j + 1] = vec[j];
             j--;
         }
-        vec[j + 1] = temp;
+        vec[j + 1] = aux;
     }
 }
 
 int criterio_reparaciones(Reparaciones a, Reparaciones b) {
-    if (a.cliente > b.cliente) 
-      return 1;
-    else if (a.cliente < b.cliente)
-      return -1;
+    // 1) Comparar por cliente
+    if (a.cliente != b.cliente)
+        return a.cliente > b.cliente ? 1 : -1;
 
-    if (a.tipo_de_producto > b.tipo_de_producto) 
-      return 1;
-    else if (a.tipo_de_producto < b.tipo_de_producto)
-      return -1;
+    // 2) Si cliente es igual, comparar tipo_de_producto
+    if (a.tipo_de_producto != b.tipo_de_producto)
+        return a.tipo_de_producto > b.tipo_de_producto ? 1 : -1;
 
-    if (a.sku > b.sku)
-      return 1;
-    else if (a.sku < b.sku)
-      return -1;
+    // 3) Si también son iguales, comparar SKU
+    if (a.sku != b.sku)
+        return a.sku > b.sku ? 1 : -1;
 
-    return 0;
+    return 0; // Son iguales
 }
-
 // Lectura de archivo de productos (18/09/25)
 
 void lecturaProductos() { 
