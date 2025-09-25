@@ -17,11 +17,11 @@ struct Producto {
 
 #pragma pack(push, 1)
 struct Reparacion {
-   char cliente[15];     // 15 bytes
-     char sku[10];         // 10 bytes
-     int tipoProducto;     // 4 bytes
-     float costoDirecto;   // 4 bytes
-     float presupuestado;  // 4 bytes
+   char cliente[15];
+    int tipoProducto;
+     char sku[10];
+     float costoDirecto;
+     float presupuestado;
 };
 #pragma pack(pop)
 vector<Reparacion> leerArchivoReparacion(){
@@ -53,7 +53,7 @@ vector<Producto> leerArchivoProducto(){
 
  void leerVectorReparacion(vector<Reparacion>reparaciones){
     for(Reparacion rep : reparaciones){
-             cout<<"Nombre:"<<rep.cliente;
+             cout<<"Nombre:"<<rep.cliente<<" TipoProd: "<<rep.tipoProducto<<" Sku: "<<rep.sku<<" Cost Dire "<<rep.costoDirecto<<" Presu: "<<rep.presupuestado;
              cout<<"\n";
           };
  }
@@ -66,6 +66,6 @@ vector<Producto> leerArchivoProducto(){
 int main() {
    vector<Reparacion> reparaciones=leerArchivoReparacion();
    vector<Producto>productos=leerArchivoProducto();
-
+   leerVectorReparacion(reparaciones);
    return 0;
 }
