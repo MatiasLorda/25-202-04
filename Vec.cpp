@@ -2,46 +2,70 @@
 #include <iomanip>
 #include <fstream>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
+
+#pragma pack(push, 1)
 struct Producto {
     char sku[10];       // 10 bytes
     char descripcion[20]; // 20 bytes
     float costoFijo;    // 4 bytes
 }; // Tamaño total: 34 bytes
-struct Reparacion {
-    char cliente[15];
-    char sku[10];
-    int tipoProducto;
-    float costoDirecto;
-    float presupuestado;
-};
+#pragma pack(pop)
 
-void leerArchivoReparacion(Reparacion rep[]){
+
+#pragma pack(push, 1)
+struct Reparacion {
+   char cliente[15];     // 15 bytes
+     char sku[10];         // 10 bytes
+     int tipoProducto;     // 4 bytes
+     float costoDirecto;   // 4 bytes
+     float presupuestado;  // 4 bytes
+};
+#pragma pack(pop)
+vector<Reparacion> leerArchivoReparacion(){
    ifstream archile("reparaciones.bin",ios::binary);
    Reparacion r;
-   int i=0;
-   while(!archile.eof()){
+   vector<Reparacion>rep;
+
+   while(archile.read(reinterpret_cast<char *>(&r), sizeof(Reparacion))){
       archile.read((char *)&r,sizeof(Reparacion));
-      rep[i]=r;
-      i++;
+      rep.push_back(r);
    }
    archile.close();
+   return rep;
 }
-void leerArchivoProducto(Producto pro[]){
+
+vector<Producto> leerArchivoProducto(){
    ifstream archile("productos.bin",ios::binary);
    Producto r;
-
+   vector<Producto>productos;
    int i=0;
-   while(!archile.eof()){
+   while(archile.read(reinterpret_cast<char *>(&r), sizeof(Producto))){
       archile.read((char *)&r,sizeof(Producto));
-      pro[i]=r;
+      productos.push_back(r);
       i++;
    }
    archile.close();
+   return productos;
 }
-int main() {
 
+ void leerVectorReparacion(vector<Reparacion>reparaciones){
+    for(Reparacion rep : reparaciones){
+             cout<<"Nombre:"<<rep.cliente;
+             cout<<"\n";
+          };
+ }
+ void leerVectorProducto(vector<Producto>productos){
+    for(Producto pro : productos){
+             cout<<"Nombre:"<<pro.sku;
+             cout<<"\n";
+          };
+ }
+int main() {
+   vector<Reparacion> reparaciones=leerArchivoReparacion();
+   vector<Producto>productos=leerArchivoProducto();
 
    return 0;
 }
