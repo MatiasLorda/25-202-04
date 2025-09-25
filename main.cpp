@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-
+#include <vector>
 using namespace std;
 
 // Definicion de estructuras (18/09/25)
