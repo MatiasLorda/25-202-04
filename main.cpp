@@ -55,6 +55,12 @@ int busqueda_lineal(T vec[], int dim, T clave, int (*criterio)(T, T)) {
     return -1; // No encontrado
 }
 
+int criterio_busqueda_cliente(Reparacion a, Reparacion b) {
+    if (a.cliente == b.cliente)
+      return 0;
+    return (a.cliente > b.cliente) ? 1 : -1;
+}
+
 template <typename T>
 void ordenamiento_ascendente(T vec[], int dim, int (*criterio)(T, T)) {
     int i, j;
