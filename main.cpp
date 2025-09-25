@@ -135,7 +135,7 @@ void descripcionTipo() {
 
     Reparaciones t;
 
-    switch (t.tipo_producto) {
+    switch (t.tipo_de_producto) {
 
         case 0:
             cout << "Electrónico";
