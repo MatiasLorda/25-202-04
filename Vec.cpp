@@ -63,9 +63,35 @@ vector<Producto> leerArchivoProducto(){
              cout<<"\n";
           };
  }
+void ordenarVector(vector<Reparacion>& rep) {
+       sort(rep.begin(), rep.end(),[](const Reparacion& a, const Reparacion& b) -> bool {
+             string clientea=string(a.cliente);   //los paso a string porque char no me los compara bien
+             string clienteb=string(b.cliente);
+             string skua=string(a.sku);
+             string skub=string(b.sku);
+/*
+             if (clientea != clienteb) {
+                 return a.cliente > b.cliente;
+             }
+
+*/
+             if(clientea!=clienteb){
+                return clientea<clienteb;
+             }
+             if (a.tipoProducto != b.tipoProducto) {
+                 return a.tipoProducto < b.tipoProducto;
+             }
+
+
+             return skua < skub;
+         }
+     );
+ }
+
 int main() {
    vector<Reparacion> reparaciones=leerArchivoReparacion();
    vector<Producto>productos=leerArchivoProducto();
+    ordenarVector(reparaciones);
    leerVectorReparacion(reparaciones);
    return 0;
 }
