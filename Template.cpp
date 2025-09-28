@@ -65,6 +65,9 @@ vector<Producto> leerArchivoProducto(){
  }
 
 //auto es para decirle a la funcion que utilize los return del comparador,aprendido con geminis.esta hecho de esta manera para implementar templates con los vector<>
+//tambien utilazom bibliografia para comprender como hacer la funcion ya que esta entra en cada condicion si es necesario y se la da a la funcion sort para que determine como ordenar el array dinamico
+//antes la funcion que ordenaba era super grande y ahora es una sola linea,por lo cual crear un comparador con templates fue esencial para acortarlo, si utilizacemos un 
+//.h que guarde la funcion comparador seria incluso mas legible porque solo seria una linea el ordenamiento
 template<typename t> auto comparador(){
    return[](const t& a, const t& b) -> bool {
                 string clientea=string(a.cliente);   //los paso a string porque char no me los compara bien
