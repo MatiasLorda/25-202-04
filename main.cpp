@@ -190,23 +190,41 @@ int main() {
 
   string datos[dim] = {"Cliente", "Tipo Producto", "SKU", "Producto", "Costo Fijo", "Costo Directo", "Presupuestado"};
 
+  // Carga de Vectores con Datos (29/09/25)
+
+  string salida_cliente1[dim] = {"Nyota Uhura", "Mecatrónico", "MTRN00022", "Dron", "5748.50", "17398.80", "24403.00"};
+
+  string salida_cliente2[2*dim] = {"Don Ramón", "Electrónico", "ELTR003", "Tablet", "3532.50" "14279.20", "22289.00", 
+                                  "Don Ramón", "Mecatrónico", "MTRN00023", "Robot Aspirador", "5952.00", "10574.40", "17956.00"};
+
+  string salida_cliente3[4*dim] = {"Taller el Trio", "Electrónico", "ELTR001", "Celular", "5996.00", "10436.60", "17642.00",
+                                  "Taller el Trio", "Electrónico", "ELTR002", "Laptop", "5056.00", "14494.60", "24287.00",
+                                  "Taller el Trio", "Mecánico", "MEC004V2", "Bicicleta", "4343.75", "16849.20", "25897.00",
+                                  "Taller el Trio", "Mecatrónico", "MTRN00022", "Dron", "5748.50", "12447.60", "19602.00"};
+
+
+  Reparaciones r;
+  Productos p;
+
+  
   while (cin) {
 
-      Reparaciones c;
-
       cout << "Ingrese cliente a consultar: ";
-      cin >> c.cliente;
+      cin >> r.cliente;
 
-      while (c.cliente.length() > 15) {
+      while (r.cliente.length() > 15) {
 
           cout << "El largo del nombre no puede ser mas de 15 caracteres!" << endl;
           cout << "Ingrese nuevamente el cliente a consultar: ";
-          cin >> c.cliente;
+          cin >> r.cliente;
       }
 
   }
     
   
+  // Ganancia de una Reparación (29/09/25)
 
+  float ganancia = (r.presupuestado) - (p.costo_fijo + r.costo_directo);
+  
   return 0;
 }
