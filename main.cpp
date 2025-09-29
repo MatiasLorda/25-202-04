@@ -26,6 +26,7 @@ struct Reparaciones {
 
   string cliente;
   int tipo_de_producto;
+  string descripcion_tipo_producto; 
   string sku;
   float costo_fijo;
   float presupuestado;
