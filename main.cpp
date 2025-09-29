@@ -39,7 +39,7 @@ void insertarReparaciones (Reparaciones *&lista) {
 
 }
 
-// Funciones de ordenamiento y busqueda lineal (18/09/25)
+// Funciones de ordenamiento y busqueda lineal (25/09/25)
 
 template <typename T>
 int busqueda_lineal(T vec[], int dim, T clave, int (*criterio)(T, T)) {
@@ -78,6 +78,9 @@ void ordenamiento_ascendente(T vec[], int dim, int (*criterio)(T, T)) {
     }
 }
 
+
+// Criterio Reparaciones (25/09/25)
+
 int criterio_reparaciones(Reparaciones a, Reparaciones b) {
     // 1) Comparar por cliente
     if (a.cliente != b.cliente)
@@ -93,6 +96,7 @@ int criterio_reparaciones(Reparaciones a, Reparaciones b) {
 
     return 0; // Son iguales
 }
+
 // Lectura de archivo de productos (18/09/25)
 
 void lecturaProductos() { 
